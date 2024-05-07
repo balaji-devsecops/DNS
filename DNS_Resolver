@@ -1,0 +1,18 @@
+Recursive Resolver:
+
+Your computer sends a DNS query for "www.example.com" to the Recursive Resolver, which is typically provided by your Internet Service Provider (ISP), or you might be configured to use a public one like Google (8.8.8.8).
+Root Name Server:
+
+The Recursive Resolver does not know where "www.example.com" is, so it asks a Root Name Server. The Root Name Server won't know the IP address for "www.example.com," but it will direct the Recursive Resolver to a TLD server responsible for .com domains.
+Top-Level Domain (TLD) Server:
+
+The Recursive Resolver then queries the TLD Server for the .com domain. The TLD Server will respond with the address of the Authoritative Name Server for "example.com".
+Authoritative Name Server:
+
+Next, the Recursive Resolver sends a query to the Authoritative Name Server for "example.com". The Authoritative Name Server has the DNS records for "example.com" and responds with the IP address associated with "www.example.com".
+Recursive Resolver (Caching):
+
+The Recursive Resolver, now armed with the IP address for "www.example.com", stores this information in its cache (to make future queries for the same domain faster) and sends the IP address back to your computer.
+Your Computer (Client):
+
+Your computer receives the IP address and can now form an HTTP request to the web server at that IP address, which will start serving you the website for "www.example.com".
